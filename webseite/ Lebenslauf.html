@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lebenslauf</title>
+    <style>
+        body {
+            font-family: monospace;
+        }
+
+        /* Allgemeine Klasse für den Schreibmaschinen-Effekt */
+        .animated-text {
+            overflow: hidden;
+            white-space: nowrap;
+            /* Verhindert Zeilenumbrüche */
+            border-right: 2px solid;
+            /* Blinkender Cursor */
+        }
+
+        /* Erste Animation für den Text "Mein Name ist Dandara" */
+        .sentence1 {
+            height: 1.1em;
+            animation: typing1 2s steps(21) forwards, blink-caret 0.75s step-end infinite;
+        }
+
+        /* Zweite Animation für den Text "Infos:" mit Verzögerung */
+        .sentence2 {
+            height: 1.1em;
+            visibility: hidden;
+            animation: typing2 2s steps(6) forwards, blink-caret 0.75s step-end infinite;
+            animation-delay: 2.5s;
+            /* Verzögerung von 2 Sekunden */
+            animation-fill-mode: forwards;
+        }
+
+        /* Dritte Animation für den Text " 34 Zeichen für "Adresse, E-Mail,Geburtsdatum, Familianstand etc." */
+        .sentence3 {
+            height: 1.1em;
+            animation: typing3 3s steps(34) forwards, blink-caret 0.75s step-end infinite;
+            animation-delay: 5.5s;
+            /* Verzögerung von 5.5 Sekunden, damit es nach Satz 1 und 2 kommt */
+            visibility: hidden;
+        }
+
+        /*Animation für Info Blöcke*/
+        .fadeInAnimation {
+            animation: fadeIn 3s;
+            animation-delay: 5.5s;
+            /* Verzögerung von 5.5 Sekunden, damit es nach Satz 1 und 2 kommt */
+            animation-fill-mode: forwards;
+            opacity: 0%;
+        }
+
+        /* Keyframes für die erste Animation */
+        @keyframes typing1 {
+            from {
+                width: 0;
+                visibility: visible;
+            }
+
+            to {
+                width: 21ch;
+                visibility: visible;
+            }
+
+            /* 21 Zeichen für "Mein Name ist Dandara" */
+        }
+
+        /* Keyframes für die zweite Animation */
+        @keyframes typing2 {
+            from {
+                width: 0;
+                visibility: visible;
+            }
+
+            to {
+                width: 6ch;
+                visibility: visible;
+            }
+
+            /* 5 Zeichen für "infos:" */
+        }
+
+        /* Cursor-Blinken-Effekt */
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: black;
+            }
+        }
+
+        /* Keyframes für die dritte Animation */
+        @keyframes typing3 {
+            from {
+                width: 0;
+                visibility: visible;
+            }
+
+            to {
+                width: 34ch;
+                visibility: visible;
+            }
+
+            /* 34 Zeichen für "Adresse, E-Mail,Geburtsdatum, Familianstand etc." */
+        }
+
+        /* Cursor-Blinken-Effekt */
+        @keyframes blink-caret {
+
+            from,
+            to {
+                border-color: transparent;
+            }
+
+            50% {
+                border-color: black;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        /* Container für die Sprechblase */
+        .speech-bubble {
+            position: relative;
+            background-color: #f0f0f0;
+            /* Hintergrund der Blase */
+            border-radius: 10px;
+            /* Abgerundete Ecken */
+            padding: 10px 20px;
+            width: 250px;
+            font-size: 16px;
+            color: #333;
+
+        }
+
+        /* Das Dreieck (Zeiger) unten an der Sprechblase */
+        .speech-bubble::after {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            /* Platzierung unter der Blase */
+            left: 20px;
+            /* Abstand vom linken Rand der Blase */
+            border-width: 10px;
+            /* Größe des Dreiecks */
+            border-style: solid;
+            border-color: #dce9e978 transparent transparent transparent;
+            /* Farbe des Dreiecks */
+        }
+
+        .speech-bubble-wrapper {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .speech-bubble-right {
+            justify-content: flex-end;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="animated-text sentence1">Mein Name ist Dandara</h1>
+    <hr />
+    <h2 class="animated-text sentence2">Infos:</h3>
+        <p class="animation-text fadeInAnimation">
+            Simplonstraße, 44<br> 10245 Berlin <br>
+            Tel.: +49 1573 1632524
+        </p>
+        <p class="animation-text fadeInAnimation" style="animation-delay: 6.5s;">
+            E-mail: <a href="mailto:anadandara.sg@gmail.com">anadandara.sg@gmail.com</a>
+        </p>
+        <p class="animation-text fadeInAnimation" style="animation-delay: 7.5s;">
+            geb. 30.04.1997 in São Gonçalo do Amarante, Brasilien
+            Staatsangehörigkeit: brasilianisch
+        </p>
+        <p class="animation-text fadeInAnimation" style="animation-delay: 8.5s;">
+            Verheiratet und Mutter einer Tochter seit 2022
+        </p>
+        <p class="animation-text fadeInAnimation" style="animation-delay: 9.5s;">
+            2019 Übersiedlung nach Deutschland
+        </p>
+        <h2 style="margin-top: 32px;">
+            <center>BERUFSAUSBILDUNG</center>
+        </h2>
+
+        <div class="speech-bubble-wrapper">
+            <div class="speech-bubble">
+                <strong>01/2012-12/2014 </strong><br />
+                Obstproduktionstechnologe Escola Estadual de Ensino Profissionalizante Flávio Gomes
+                Granjeiro Technikerin
+                für Obstproduktion
+            </div>
+        </div>
+
+        <div class="speech-bubble-wrapper speech-bubble-right">
+            <div class="speech-bubble">
+                <strong>06/2017 - 07/2019 </strong>
+                Apothekenfachverkäuferin   RD RAIA DROGASIL S.A
+            </div>
+        </div>
+        <div class="speech-bubble-wrapper">
+            <div class="speech-bubble">
+                <strong>09/2015 – 05/2016</strong><br>
+                Empfang und Gästebetreuung COREL GRÁFICA
+
+            </div>
+        </div>
+        <div class="speech-bubble-wrapper speech-bubble-right">
+            <div class="speech-bubble ">
+                <strong>06/2014 - 11/2014</strong><br>
+                Pflichtpraktikum EMBRAPA - Agrar Forschungsunternehmen Experimentelle Überwachung von Obstgärten,
+                Vorbereitung von Dokumenten zur Schädlingsresistenz, Bodenanalyse, Veredelungsmethoden
+
+            </div>
+        </div>
+</body>
+
+</html>
